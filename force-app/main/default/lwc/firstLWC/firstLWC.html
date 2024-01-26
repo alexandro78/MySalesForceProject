@@ -1,0 +1,39 @@
+<template>
+    <lightning-card title="Custom Object Data">
+        <div class="slds-m-around_medium">
+            <div>
+                <label for="nameInput">Name:</label>
+                <input type="text" id="nameInput" value={nameInput} onchange={handleNameChange}></input>
+            </div>
+            <div>
+                <label for="notesInput">Notes:</label>
+                <input type="text" id="notesInput" value={notesInput} onchange={handleNotesChange}></input>
+            </div>
+            <div class="slds-m-top_medium">
+                <lightning-button label="Save" onclick={saveRecord}></lightning-button>
+            </div>
+            <div class="slds-m-top_medium">
+                <template if:true={customObjectData}>
+                    <ul>
+                        <template for:each={customObjectData} for:item="item">
+                            <li key={item.Id}>{item.Notes__c}</li>
+                        </template>
+                    </ul>
+                </template>
+                <template if:false={customObjectData}>
+                    No data available.
+                </template>
+            </div>
+        </div>
+    </lightning-card>
+</template>
+
+
+
+
+<!-- <div>
+    <div>Name: {name}</div>
+    <div>Company: {company}</div>
+    <div>Designation: {designation}</div>
+    <div>Salary: {salary}</div>
+</div> -->
